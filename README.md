@@ -51,7 +51,7 @@ While there are lot of unknown values, one thing is clear. When commercial aircr
 
 <img title="weather_event_analysis" alt="graph displaying a bar chart comparing the amount of accidents that occurred due to different weather events" src="/images/weather_event.png">
 
-This analysis lead us to find that weather conditions could lead to an accident however it was primarily human error and not the flight instruments that aid pilots. 
+This analysis lead us to find that weather conditions could lead to an accident however when an accident did occur, it was rare that it was in conditions where visibility was so low that pilots needed to rely on flight instruments. As such, most accidents occur when the pilot has sufficient visibility to fly the aircraft maintaining visual separation from terrain and other aircraft. 
 
 <img title="human_error_analysis" alt="graph displaying a bar chart comparing if accidents on commercial aircraft were caused by human error" src="/images/human_error.png">
 
