@@ -31,6 +31,8 @@ After checking the NTSB data set to see the column names and null values, we mer
 
 Once we had a merged data set, we filtered the data set down so that we were focussing on our stakeholder's concerns. We began with the columns that had no missing values inside of them. The investigation_type was of particular interest as it classified the event as either an accident or incident. After reviewing the Code of Federal Regulations we found that an incident is defined as "an occurrence other than an accident, associated with the operation of an aircraft, which affects or could affect the safety of operations(1)". Since an incident may or may not affect the safety of operations on the aircraft, it is hard to rely on this data as it does not give us concrete information about the event that occurred. To align with our stakeholder's priorities, we removed all incidents from the data set (~5% of the data).  
 
+Then, we worked to fill/impute as many missing values as we could. We also dropped columns that were not pertinent to our stakeholders priorities. 
+
 Following this, the next decision we made was how to clean the make and model columns. Through our review of the 'purpose_of_flight' column, we discovered that there were no aircrafts makred as commercial flights. Further, the columns labeled as 'personal' did not identify commercial flights but rather individuals flying personal planes. 
 
 This lead us to research the commercial aircraft manufacturing industry. In doing so, we found that there are two major players, Boeing and Airbus. The two companies have held a duopoly over the commercial aircraft manufacturing industry since 1990. "Together account for 99% of all large aircraft orders (and these orders together account for 90% of all aircraft sales) (2)."
@@ -39,15 +41,25 @@ These insights lead us to working with the make and model columns. While there w
 
 In that comparison, we found that commerical flights are slightly less risky than business flights. If we include executive/corporate flight purposes in with business flights, we see that commercial flights are the safer option between private or commercial flights. 
 
-<img title="purpose_of_flight_analysis" alt="Alt text" src="/images/purpose_of_flight.png">
+<img title="purpose_of_flight_analysis" alt="graph displaying a bar chart comparing different purposes of flight" src="/images/purpose_of_flight.png">
 
 Once we determined that commerical aircraft were the safer option, we wanted to see which models were the most durable. To do so we looked at two key factors, if the model was in an accident, how damaged was the aircraft and the count of accidents that happened during a weather event. 
 
-<img title="damage_analysis" alt="Alt text" src="/images/durability_of_aircraft.png">
+<img title="damage_analysis" alt="graph displaying a bar chart comparing different amounts of damage on commercial aircraft" src="/images/durability_of_aircraft.png">
 
-<img title="weather_event_analysis" alt="Alt text" src="/images/weather_event.png">
+While there are lot of unknown values, one thing is clear. When commercial aircraft get into accidents, they are rarely destroyed. Most of the time the damage is substantial but not beyond repair. 
 
-Then, we worked to fill/impute as many missing values as we could. We also dropped columns that were not pertinent to our stakeholders priorities. 
+<img title="weather_event_analysis" alt="graph displaying a bar chart comparing the amount of accidents that occurred due to different weather events" src="/images/weather_event.png">
+
+This analysis lead us to find that weather conditions could lead to an accident however it was primarily human error and not the flight instruments that aid pilots. 
+
+<img title="human_error_analysis" alt="graph displaying a bar chart comparing if accidents on commercial aircraft were caused by human error" src="/images/human_error.png">
+
+However, when we dug into this, all accidents on commercial aircraft were not the result of human error. It is worth noting that the 'report_staus' column did have ~7% missing values so there is the chance that an accident was the result of human error. 
+
+This shows that regardless of the weather condition (IMC v VMC), pilots of commercial aircrafts are not the root cause of the accident. 
+
+For our stakeholder, this is good news as it allowed a direct comparison of commercial aircraft as the accidents should all be caused by the aircraft itself and not the crew piloting the aircraft. 
 
 ### Columns with filled/imputed information
 - location
