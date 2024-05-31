@@ -102,8 +102,6 @@ For our stakeholder, this is good news as it allowed a direct comparison of comm
 - make
 - purpose_of_flight
 
-        Three visualizations (the same visualizations presented in the slides and notebook)
-
 ## Recommendations
 
 ### Where and when?
@@ -159,3 +157,7 @@ Verdict: The Airbus A321 is a versatile, cost-effective option for medium-haul r
     -  Limited range operations, designed for short to medium flights.
 
 Verdict: The Airbus A320 has a strong reputation for reliability and performance, making it an excellent choice for medium to long-haul flights.
+
+## Tableau Dashboard 
+
+- https://public.tableau.com/app/profile/evan.rosenbaum/viz/CommercialAircraftAnalysis/CommercialAircraftAnalysis?publish=yes
