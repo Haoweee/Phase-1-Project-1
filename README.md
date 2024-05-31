@@ -2,11 +2,11 @@
 Authors: Brian Woo and Evan Rosenbaum
 
 ## Overview
-Uber has decided that they would like to enter the aviation industry. Following the failed merger of JetBlue and Spirit airlines, Uber has decided diversify their business. In doing so, they are looking for new growth opportunities in an industry that has lagged behind other industries in their adoption of technology. 
+Uber has decided that they would like to enter the aviation industry. In doing so, they are looking for new growth opportunities in an industry that has lagged behind other industries in their adoption of technology. 
 
 Two different datasets were used for this anaylsis to gain insight into which aircraft has the best safety, durability, and lasting value. The results showed that commercial aircraft were involved in fewer accidents than business flights (exclusive of executive/corporate flights). As such, commercial aircraft were chosen as the type of aircraft to purchase and commercial flights the business to pursue.
 
-Our recommendation to Uber is for them to pursue a fleet of either Boeign 787's, Airbus A321's, or Airbus A330's.
+Our recommendation to Uber is for them to pursue a fleet of either Airbus A330's, Airbus A321's, or Airbus A320's.
 
 ## Business Problem
 
@@ -29,17 +29,13 @@ The first data set we analyzed came from the National Transportation Safety Boar
 ### Description of Data
 After checking the NTSB data set to see the column names and null values, we merged the two data sets together using the state and abbreviation columns to ensure that we were only looking at accidents that occurred inside of the United States. This was important as the NTSB state column contained invalid US states. 
 
-Once we had a merged data set, we filtered the data set down so that we were focussing on our stakeholder's concerns. We began with the columns that had no missing values inside of them. The investigation_type was of particular interest as it classified the event as either an accident or incident. After reviewing the Code of Federal Regulations we found that an incident is defined as "an occurrence other than an accident, associated with the operation of an aircraft, which affects or could affect the safety of operations(1)". Since an incident may or may not affect the safety of operations on the aircraft, it is hard to rely on this data as it does not give us concrete information about the event that occurred. To align with our stakeholder's priorities, we removed all incidents from the data set (~5% of the data).  
+Once we had a merged data set, we filtered the data set down so that we were focussing on our stakeholder's concerns. We began with determining whether Uber should enter the commercial or private aviation industry. 
 
-Then, we worked to fill/impute as many missing values as we could. We also dropped columns that were not pertinent to our stakeholders priorities. 
+<img title="purpose_of_flight_analysis" alt="graph displaying a bar chart comparing different purposes of flight" src="/images/purpose_of_flight.png">
 
-Following this, the next decision we made was how to clean the make and model columns. Through our review of the 'purpose_of_flight' column, we discovered that there were no aircrafts makred as commercial flights. Further, the columns labeled as 'personal' did not identify commercial flights but rather individuals flying personal planes. 
+We found that commercial flights had fewer fatal injuries than private flights (labeled as business). As such, we chose to focus our data set on commercial flights to determine which aircraft met the criteria of our client. 
 
-This lead us to research the commercial aircraft manufacturing industry. In doing so, we found that there are two major players, Boeing and Airbus. The two companies have held a duopoly over the commercial aircraft manufacturing industry since 1990. "Together account for 99% of all large aircraft orders (and these orders together account for 90% of all aircraft sales) (2)."
-
-These insights lead us to working with the make and model columns. While there wasn't a lot of missing values in these columns, they proved to be hard to parse and glean insights from due to the number of unique values. The make column did not contain normalized casing and the model column contained the model and addition features. For instance there was the Airbus A320 and the A320-232. While the A320-232 has a different engine than the A320, it is in the A320 family of commercial aircraft. We decided to work with the overarching family of aircraft and label these aircraft as commercial flights so we could compare them against the personal aircrafts.
-
-In that comparison, we found that commerical flights are slightly less risky than business flights. If we include executive/corporate flight purposes in with business flights, we see that commercial flights are the safer option between private or commercial flights. 
+The next decision we made was how to clean the make and model columns. While there wasn't a lot of missing values in these columns, they proved to be hard to parse and glean insights from due to the number of unique values. The make column did not contain normalized casing and the model column contained the model and addition features. For instance there was the Airbus A320 and the A320-232. While the A320-232 has a different engine than the A320, it is in the A320 family of commercial aircraft. We decided to work with the overarching family of the aircraft. 
 
 <img title="purpose_of_flight_analysis" alt="graph displaying a bar chart comparing different purposes of flight" src="/images/purpose_of_flight.png">
 
@@ -96,7 +92,6 @@ For our stakeholder, this is good news as it allowed a direct comparison of comm
 - publication_date
 
 ### Columns Added
-- total_injuries
 - year
 - month
 - date
@@ -109,25 +104,37 @@ For our stakeholder, this is good news as it allowed a direct comparison of comm
 
         Three visualizations (the same visualizations presented in the slides and notebook)
 
-## Conclusion
+## Recommendations
+
+### Where and when?
+We recommend starting business in October and in the Midwest as there have been the fewest fatal injuries to occur. 
+
+### Pilot Training
+
+We recommened going above and beyond the FAA mandated hour requirement for pilot training. The more hours spent training will produce better and safer pilots.
+
+Specifically spend additional time in procedural aspects of the takeoff and approach as these had the highest cases of fatal injury. 
+
+### Best Commercial Aircraft
 
 <img title="safety_of_commercial_aircraft_analysis" alt="Alt text" src="/images/total_injuries.png">
 
 
 Based on our findings we have concluded that these are the 3 top choices for your commerical airline company:
 
-1. **Boeing 787**
+1. **Airbus A330**
+
 - Pros:
-    - Advanced technology and fuel efficiency (8,463 miles).
-    - High passenger comfort with modern amenities.
-    - No fatalities or hull losses reported.
+    - Extensive service history with more than 65 million flight hours.
+    - Still in production, ensuring continued support and parts availability.
+    - Well-suited for long flying ranges (~8,300 miles)
 
 - Cons:
-    - Early operational issues with lithium-ion batteries.
-    - Significant quality control issues and production slowdowns.
-    - High program cost, requiring substantial sales to break even.
+    - Less fuel efficient, which can result in high operational costs.
+    - Older model plane, less advanced technology and lower overall efficiency.
+    - Poor engine performance, which can decrease fuel efficiency and cause cabin vibrations.
 
-Verdict: Despite initial issues, the Boeing 787 is a reliable and modern aircraft suitable for long-haul flights, with a strong safety record post-battery redesign.
+Verdict: The Airbus A330 is a proven, reliable aircraft for medium to long-haul routes with a strong operational track record.
 
 2. **Airbus A321**
 
@@ -141,20 +148,14 @@ Verdict: Despite initial issues, the Boeing 787 is a reliable and modern aircraf
 
 Verdict: The Airbus A321 is a versatile, cost-effective option for medium-haul routes, benefiting from commonality with other A320-family aircraft.
 
-3. **Airbus A330**
+3.  **Airbus A320**
 
 - Pros:
-    - Extensive service history with more than 65 million flight hours.
-    - Still in production, ensuring continued support and parts availability.
-    - Well-suited for long flying ranges (~8,300 miles)
+    - Has completed more than 176 million flights over 328 million block hours.
+    - Long and proven track record for safety (1986 - present).
+    - Offers up to 15% better fuel economy with new eco-engines.  
 
 - Cons:
-    - Less fuel efficient, which can result in high operational costs.
-    - Older model plane, less advanced technology and lower overall efficiency.
-    - Poor engine performance, which can decrease fuel efficiency and cause cabin vibrations.
+    -  Limited range operations, designed for short to medium flights.
 
-Verdict: The Airbus A330 is a proven, reliable aircraft for medium to long-haul routes with a strong operational track record.
-        
-## Sources
-1. https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-A/section-830.2
-2. https://simpleflying.com/battle-of-big-planes/
+Verdict: The Airbus A320 has a strong reputation for reliability and performance, making it an excellent choice for medium to long-haul flights.
